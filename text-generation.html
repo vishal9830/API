@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Generation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Test and Try APIS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a class="nav-link" href="text-generation.html">Text Generation</a></li>
+                <li class="nav-item"><a class="nav-link" href="image-classification.html">Image Classification</a></li>
+                <li class="nav-item"><a class="nav-link" href="face-detection.html">Face Detection</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Text Generation</h2>
+        <div id="textGeneration" class="text-center mb-4">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <button id="generateText" class="btn btn-primary btn-lg">Generate Text</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        $(document).ready(function () {
+            function generateText() {
+                $.ajax({
+                    url: 'https://baconipsum.com/api/?type=all-meat&paras=1&start-with-lorem=1',
+                    type: 'GET',
+                    success: function (data) {
+                        $('#textGeneration').html(`<p class="lead">${data}</p>`);
+                    },
+                    error: function () {
+                        $('#textGeneration').html('<p class="text-danger">Failed to generate text.</p>');
+                    },
+                    beforeSend: function () {
+                        $('#textGeneration').html(`
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        `);
+                    }
+                });
+            }
+
+            // Initial load
+            generateText();
+
+            // Generate button click event
+            $('#generateText').click(function () {
+                generateText();
+            });
+        });
+    </script>
+</body>
+
+</html>
