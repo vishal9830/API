@@ -12,8 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">Test and Try APIS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -32,7 +31,7 @@
     </nav>
 
     <div class="container mt-5">
-        <h2 class="mb-4">Face Detection</h2>
+        <h2 class="mb-4">Fac Detection</h2>
         <div id="faceDetection" class="text-center mb-4">
             <div class="spinner-border text-primary" role="status">
                 <span class="sr-only">Loading...</span>
@@ -45,7 +44,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             function loadFaceDetection() {
                 const randomFace = Math.floor(Math.random() * 100) + 1; // Random face number (1-100)
                 const imageUrl = `https://randomuser.me/api/portraits/men/${randomFace}.jpg`;
@@ -59,7 +58,7 @@
             loadFaceDetection();
 
             // Change button click event
-            $('#changeFace').click(function () {
+            $('#changeFace').click(function() {
                 loadFaceDetection();
             });
         });
