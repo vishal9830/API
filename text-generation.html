@@ -12,8 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">Test and Try APIS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -39,18 +38,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             function generateText() {
                 $.ajax({
                     url: 'https://baconipsum.com/api/?type=all-meat&paras=1&start-with-lorem=1',
                     type: 'GET',
-                    success: function (data) {
+                    success: function(data) {
                         $('#textGeneration').html(`<p class="lead">${data}</p>`);
                     },
-                    error: function () {
+                    error: function() {
                         $('#textGeneration').html('<p class="text-danger">Failed to generate text.</p>');
                     },
-                    beforeSend: function () {
+                    beforeSend: function() {
                         $('#textGeneration').html(`
                             <div class="spinner-border text-primary" role="status">
                                 <span class="sr-only">Loading...</span>
@@ -64,7 +63,7 @@
             generateText();
 
             // Generate button click event
-            $('#generateText').click(function () {
+            $('#generateText').click(function() {
                 generateText();
             });
         });
